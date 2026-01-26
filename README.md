@@ -1,2 +1,1 @@
-# Secure-Shell-SSH-Configuration
-Configured on Cisco packet tracer
+This repository contains a Cisco Packet Tracer laboratory demonstrating the implementation of secure remote management for network infrastructure. By transitioning from unencrypted Telnet to SSH, this lab focuses on hardening the control plane and establishing secure administrative access.
