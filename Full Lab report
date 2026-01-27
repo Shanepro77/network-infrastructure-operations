@@ -35,8 +35,8 @@ line vty 0 15
 exit
 
 ## Device configurations links
-* [Multilayer Switch](switch configs.ios)
-* [PC Command Prompt](successful login.png)
+ [Multilayer Switch](switch-configs.ios)
+ [PC Command Prompt](successful-login.png)
 
 
 4. Verification Results
