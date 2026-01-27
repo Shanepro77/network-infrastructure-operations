@@ -1,17 +1,28 @@
 ## Lab Name: Secure Remote Management (SSH)
+
+
 **Date:** 2026-01-26
 **Tools Used:** Cisco Packet Tracer
-## 1.topology map
-![cisco diagram](topology.png)
----
-A simple Peer-to-Peer management topology consisting of one Management PC connected via a Copper Straight-Through cable to a multilayer Switch.
----
-## 2. Objectives
+
+
+## 1.Objectives
 - [x] **Task 1:** Configure a Switch Virtual Interface (SVI) for remote management.
 - [x] **Task 2:** Generate RSA Cryptokeys (1024-bit) and enable SSHv2.
 - [x] **Task 3:** Secure Virtual Teletype (VTY) lines with local authentication.
 - [x] **Task 4:** Verify encrypted connectivity from the PC Command Line.
----
+
+
+
+## 2.Topology map
+
+A simple Peer-to-Peer management topology consisting of one Management PC connected via a Copper Straight-Through cable to a multilayer Switch.
+
+
+
+![cisco diagram](topology.png) 
+
+
+
 ## 3. Key Configurations
 Below is the critical logic used to harden the switch management interface:
 ```ios
@@ -33,14 +44,20 @@ username ShaneSW Password 87654321
 line vty 0 15
  login local
  transport input ssh
-exit```
+exit
+```
 
-## Device configurations links
- [Multilayer Switch](switch-configs.ios)
- [PC Command Prompt](successful-login.png)
-
+**Switch configuration link**
+- [x] **[Multilayer Switch](switch-configs.ios)**
+---
 
 ## 4. Verification Results
-Ping Test: Successful ICMP reply from 192.168.10.2 to 192.168.10.3.
-SSH Access: Successfully established an encrypted session using the command: ```ssh -l admin 192.168.10.2.```
-![PC Command Prompt](successful-login.png)
+
+
+- [x] **Ping Test:** Successful ICMP reply from 192.168.10.2 to 192.168.10.3
+      
+- [x] **access:** Successfully established an encrypted session using the command: ```ssh -l ShaneSW 192.168.10.2.```
+
+      
+
+![PC Command Prompt](successful-Login.png)
