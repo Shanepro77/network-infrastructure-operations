@@ -5,7 +5,7 @@ This repository contains a **Cisco Packet Tracer** laboratory demonstrating the 
 
 ---
 
-## 🛠 Lab Features
+## Lab Features
 
 * **SVI Configuration:** Implementation of a Switch Virtual Interface (SVI) on VLAN 1 for Layer 3 management.
 * **Asymmetric Encryption:** Generation of **RSA cryptokeys (1024-bit)** to support SSHv2.
@@ -14,7 +14,7 @@ This repository contains a **Cisco Packet Tracer** laboratory demonstrating the 
 
 ---
 
-## 🚀 Technical Skills Demonstrated
+## Technical Skills Demonstrated
 
 ### 🔒 Network Security
 * Replacing clear-text protocols with encrypted management sessions.
