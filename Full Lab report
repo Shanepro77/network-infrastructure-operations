@@ -2,7 +2,7 @@ Lab Name: Secure Remote Management (SSH)
 Date: 2026-01-26
 Tools Used: Cisco Packet Tracer
 1. Topology Map
-
+topology.png
 A simple Peer-to-Peer management topology consisting of one Management PC connected via a Copper Straight-Through cable to a multilayer Switch.
 
 2. Objectives
@@ -23,10 +23,6 @@ interface Vlan 10
  ip address 192.168.10.2 255.255.255.0
  no shutdown
 
-## Device configurations links
-* [Multilayer Switch]()
-* [PC Command Prompt]()
-
 ! Generate encryption keys and force SSHv2
 crypto key generate rsa modulus 1024
 ip ssh version 2
@@ -37,6 +33,10 @@ line vty 0 15
  login local
  transport input ssh
 exit
+
+## Device configurations links
+* [Multilayer Switch](switch configs.ios)
+* [PC Command Prompt](successful login.png)
 
 
 4. Verification Results
