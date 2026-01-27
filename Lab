@@ -1,0 +1,44 @@
+Lab Name: Secure Remote Management (SSH)
+Date: 2026-01-26
+Tools Used: Cisco Packet Tracer
+1. Topology Map
+
+A simple Peer-to-Peer management topology consisting of one Management PC connected via a Copper Straight-Through cable to a multilayer Switch.
+
+2. Objectives
+Task 1: Configure a Switch Virtual Interface (SVI) for remote management.
+Task 2: Generate RSA Cryptokeys (1024-bit) and enable SSHv2.
+Task 3: Secure Virtual Teletype (VTY) lines with local authentication.
+Task 4: Verify encrypted connectivity from the PC Command Line.
+
+3. Key Configurations
+Below is the critical logic used to harden the switch management interface:
+ios
+! Set device identity (Required for SSH)
+hostname ShaneSW
+ip domain-name Switch.co.za
+
+! Configure Management IP 
+interface Vlan 10
+ ip address 192.168.10.2 255.255.255.0
+ no shutdown
+
+## Device configurations links
+* [Multilayer Switch]()
+* [PC Command Prompt]()
+
+! Generate encryption keys and force SSHv2
+crypto key generate rsa modulus 1024
+ip ssh version 2
+
+! Configure User Authentication and Secure the VTY Lines
+username admin secret cisco123
+line vty 0 15
+ login local
+ transport input ssh
+exit
+
+
+4. Verification Results
+Ping Test: Successful ICMP reply from 192.168.10.2 to 192.168.10.3.
+SSH Access: Successfully established an encrypted session using the command: ssh -l admin 192.168.10.2.
