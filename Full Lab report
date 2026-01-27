@@ -1,8 +1,9 @@
 Lab Name: Secure Remote Management (SSH)
 Date: 2026-01-26
 Tools Used: Cisco Packet Tracer
-1. Topology Map
-topology.png
+1.topology map
+[cisco diagram](topology.png)
+
 A simple Peer-to-Peer management topology consisting of one Management PC connected via a Copper Straight-Through cable to a multilayer Switch.
 
 2. Objectives
