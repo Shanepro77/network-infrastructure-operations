@@ -1,0 +1,102 @@
+##Initial hostname and key generation
+
+
+Switch>enable
+  Switch#config
+Configuring from terminal, memory, or network [terminal]? yes
+?Must be "terminal", "memory" or "network"
+Switch#config
+Configuring from terminal, memory, or network [terminal]? terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+     Switch(config)#hostname ShaneSW1
+       ShaneSW1(config)#ip domain-name Switch.co.za
+         ShaneSW1(config)#crypto key generate rsa general-keys modulus 1024
+The name for the keys will be: ShaneSW1.Switch.co.za
+
+
+% The key modulus size is 1024 bits
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]
+*Mar 1 2:16:38.943: %SSH-5-ENABLED: SSH 1.99 has been enabled
+
+##securing of switch device and access
+
+       ShaneSW1(config)#username ShaneSW password 87654321
+              ShaneSW1(config)#line vty 0 15
+                ShaneSW1(config-line)#transport input ssh
+                  ShaneSW1(config-line)#login local
+                       ShaneSW1(config-line)#end
+ShaneSW1#
+%SYS-5-CONFIG_I: Configured from console by console
+                           ?
+Exec commands:
+  <1-99>      Session number to resume
+  auto        Exec level Automation
+  clear       Reset functions
+  clock       Manage the system clock
+  configure   Enter configuration mode
+  connect     Open a terminal connection
+  copy        Copy from one file to another
+  debug       Debugging functions (see also 'undebug')
+  delete      Delete a file
+  dir         List files on a filesystem
+  disable     Turn off privileged commands
+  disconnect  Disconnect an existing network connection
+  enable      Turn on privileged commands
+  erase       Erase a filesystem
+  exit        Exit from the EXEC
+  logout      Exit from the EXEC
+  mkdir       Create new directory
+  more        Display the contents of a file
+  no          Disable debugging informations
+  ping        Send echo messages
+  reload      Halt and perform a cold restart
+ --More-- 
+
+
+
+
+#Creating Vlans and asigning to correct ports
+
+
+
+ShaneSW1#
+%SYS-5-CONFIG_I: Configured from console by console
+conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+ShaneSW1(config)#vlan 10
+ShaneSW1(config-vlan)#name IT
+ShaneSW1(config-vlan)#Vlan 20
+ShaneSW1(config-vlan)#Name accounting
+ShaneSW1(config-vlan)#end
+ShaneSW1#
+%SYS-5-CONFIG_I: Configured from console by console
+conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+ShaneSW1(config)#int Enter configuration commands, one per line.  End with CNTL/Z.
+ShaneSW1(config)#
+ShaneSW1(config)#interface GigabitEthernet0/1
+ShaneSW1(config-if)#switchport mode access
+ShaneSW1(config-if)#switchport access vlan 10
+ShaneSW1(config-if)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan1, changed state to down
+end
+ShaneSW1#
+%SYS-5-CONFIG_I: Configured from console by console
+
+##Asigning Ip address to switch 
+
+ShaneSW1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+ShaneSW1(config)#int vlan 10
+ShaneSW1(config-if)#
+%LINK-5-CHANGED: Interface Vlan10, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Vlan10, changed state to up
+ip address 192.168.1.2 255.255.255.0
+% 192.168.1.0 overlaps with Vlan1
+ShaneSW1(config-if)#ip address 192.168.1.2 255.255.255.0
+% 192.168.1.0 overlaps with Vlan1
+ShaneSW1(config-if)#ip address 192.168.10.2 255.255.255.0
+ShaneSW1(config-if)#no shutdown
+ShaneSW1(config-if)#end
+ShaneSW1#
