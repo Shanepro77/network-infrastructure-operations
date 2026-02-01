@@ -33,6 +33,8 @@ This lab demonstrates core enterprise networking fundamentals including VLAN seg
 
 Subnetting was performed to logically separate broadcast domains and improve security and performance.
 
+[Trunking The Vlans via SSH](inter-vlan-rout.ios)
+
 ---
 
 ## Configuration Steps
