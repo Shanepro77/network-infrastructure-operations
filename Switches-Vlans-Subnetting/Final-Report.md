@@ -80,5 +80,22 @@ Approximate round trip times in milli-seconds:
     
 ##  succesful inter Vlan pings
 ![pings](Vlan-Pings.png)
+
+
+## Troubleshooting and Operational Issues.
+
+- SSH Access Failure (SVI IP Mismatch)
+
+- SSH and ping to 192.168.10.2 timed out
+
+- Root cause: target IP belonged to IT PC, not switch
+
+- Switch management SVI is 192.168.10.1 on VLAN 10
+
+- Verified VLAN 10 SVI was administratively up (no shutdown)
+
+- Corrected SSH target to SVI IP
+
+- SSH access restored successfully
     
 
