@@ -61,3 +61,22 @@ exit
       
 
 ![PC Command Prompt](successful-Login.png)
+
+## Troubleshooting and Operational Issues.
+
+
+- SSH attempts failed with timeout and login errors
+
+- Root causes identified sequentially during hardening
+
+- Local SSH username mismatch (admin vs configured local user)
+
+- VTY lines initially not restricted to SSH with local authentication
+
+- RSA keys invalidated after hostname / domain-name change
+
+- Management SVI missing no shutdown, leaving interface inactive
+
+- Issues resolved by correcting user auth, regenerating keys, enabling SVI
+
+- Secure SSH access restored and verified
