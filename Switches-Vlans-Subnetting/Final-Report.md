@@ -15,7 +15,7 @@ This lab demonstrates core enterprise networking fundamentals including VLAN seg
 ## Network Topology
 
 **Topology Diagram:**  
-![Network Topology](Vlan-Topology.png)
+![Network Topology](Vlan-Topolgy.png)
 
 **Devices Used:**
 - 1 × Multilayer Switch
