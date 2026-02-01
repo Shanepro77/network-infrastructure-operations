@@ -1,0 +1,270 @@
+
+C:\>ssh -l ShaneSW 192.168.10.2
+
+Password: 
+
+
+
+ShaneSW1>en
+Password: 
+ShaneSW1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+ShaneSW1(config)#int fa0/24
+ShaneSW1(config-if)#switchport mode trunk
+Command rejected: An interface whose trunk encapsulation is "Auto" can not be configured to "trunk" mode.
+ShaneSW1(config-if)#switchport trunk encapsulation dot1q
+ShaneSW1(config-if)#switchport mode trunk
+ShaneSW1(config-if)#switchport trunk encap
+% Incomplete command.
+ShaneSW1(config-if)#switchport trunk allowed vlan 10,20,30
+ShaneSW1(config-if)#end
+ShaneSW1#show int trunk
+
+
+ShaneSW1#end
+Translating "end"...domain server (255.255.255.255)
+% Unknown command or computer name, or unable to find computer address
+
+ShaneSW1#show int trunk
+
+
+ShaneSW1#exit
+
+[Connection to 192.168.10.2 closed by foreign host]
+C:\>ping 192.168.20.2
+
+Pinging 192.168.20.2 with 32 bytes of data:
+
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 192.168.20.2:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+
+C:\>ssh -l ShaneSW 192.168.10.2
+
+Password: 
+
+
+
+ShaneSW1>en
+Password: 
+ShaneSW1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+ShaneSW1(config)#ip routing
+
+## Major error that disturbed SSH connection, changing the SVI to 192.168.10.1 just before loadshedding!!##
+
+ShaneSW1(config)#int vlan 10
+ShaneSW1(config-if)#ip add 192.168.10.1 255.255.255.0
+% Connection refused by remote host
+C:\>ssh -l ShaneSW 192.168.10.2
+
+% Connection timed out; remote host not responding
+C:\>ssh -l ShaneSW 192.168.10.2
+
+% Connection timed out; remote host not responding
+C:\>ping 192.168.20.2
+
+Pinging 192.168.20.2 with 32 bytes of data:
+
+Reply from 192.168.20.2: bytes=32 time=2ms TTL=255
+Reply from 192.168.20.2: bytes=32 time<1ms TTL=255
+Reply from 192.168.20.2: bytes=32 time<1ms TTL=255
+Reply from 192.168.20.2: bytes=32 time<1ms TTL=255
+
+Ping statistics for 192.168.20.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 2ms, Average = 0ms
+
+C:\>ip config
+Invalid Command.
+
+C:\>conig
+Invalid Command.
+
+C:\>my ip
+Invalid Command.
+
+C:\>ipconfig
+
+FastEthernet0 Connection:(default port)
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: FE80::2D0:D3FF:FE62:61EE
+   IPv6 Address....................: ::
+   IPv4 Address....................: 192.168.10.3
+   Subnet Mask.....................: 255.255.255.0
+   Default Gateway.................: ::
+                                     192.168.10.1
+
+Bluetooth Connection:
+
+   Connection-specific DNS Suffix..: 
+   Link-local IPv6 Address.........: ::
+   IPv6 Address....................: ::
+   IPv4 Address....................: 0.0.0.0
+   Subnet Mask.....................: 0.0.0.0
+   Default Gateway.................: ::
+                                     0.0.0.0
+
+C:\>ping 192.168.30.2
+
+Pinging 192.168.30.2 with 32 bytes of data:
+
+Reply from 192.168.30.2: bytes=32 time<1ms TTL=255
+Reply from 192.168.30.2: bytes=32 time<1ms TTL=255
+Reply from 192.168.30.2: bytes=32 time<1ms TTL=255
+Reply from 192.168.30.2: bytes=32 time<1ms TTL=255
+
+Ping statistics for 192.168.30.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 0ms, Average = 0ms
+	
+	ShaneSW1#show running-config
+Building configuration...
+
+Current configuration : 1879 bytes
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname ShaneSW1
+!
+!
+no profinet
+enable secret 5 $1$mERr$gc0bTUXHJaVERV37j2m5D0
+!
+!
+!
+!
+!
+ip routing
+!
+!
+!
+!
+username ShaneSW password 0 87654321
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip domain-name Switch.co.za
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+ switchport trunk allowed vlan 10,20,30
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface GigabitEthernet0/1
+ switchport access vlan 10
+ switchport mode access
+!
+interface GigabitEthernet0/2
+ switchport access vlan 20
+ switchport mode access
+!
+interface Vlan1
+ ip address 192.168.1.2 255.255.255.0
+!
+interface Vlan10
+ mac-address 00d0.97cc.1001
+ ip address 192.168.10.1 255.255.255.0
+!
+interface Vlan20
+ mac-address 00d0.97cc.1002
+ ip address 192.168.20.2 255.255.255.0
+!
+interface Vlan30
+ mac-address 00d0.97cc.1003
+ ip address 192.168.30.2 255.255.255.0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login local
+ transport input ssh
