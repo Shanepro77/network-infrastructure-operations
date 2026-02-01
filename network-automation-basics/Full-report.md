@@ -50,10 +50,10 @@ This reflects common operational use cases such as:
 ## Automation Artifacts
 The following files represent the automation design used in this lab:
 
-get-vlan-brief.py
+[Get-Vlan-Brief](get-vlan-brief.py)
 The script is executed manually by an administrator to automatically collect VLAN state via SSH.
 
-get-device-state.py – Conceptual script to collect interface, trunk, and routing status
+[Get-Device-State](get-device-state.py) – Conceptual script to collect interface, trunk, and routing status
 sample-output.txt – Illustrative example of returned command output
 
 
